@@ -1,12 +1,20 @@
-<h1>Movie lists</h1>
-<p>Find all the movie lists here</p>
+<div class="banner mb-5">
+  <div class="container w-50">
+    <h1>Movie lists</h1>
+    <p>Find all the movie lists here</p>
+    <%= link_to new_list_path, class: 'btn btn-flat' do %>
+      <%= icon('fa-solid', 'folder-open') %>
+      <%= "New list" %>
+    <% end %>
+  </div>
+</div>
 
-<% @lists.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %></li>
-<% end %>
+<div class="row justify-content-center text-center">
+  <h2>All lists</h2>
 
-
-<%= link_to new_list_path, class: 'btn btn-light' do %>
-  <%= icon('fa-solid', 'folder-open') %>
-  <%= "New list" %>
-<% end %>
+  <ul class="list-group" style="max-width: 500px">
+    <% @lists.each do |list| %>
+      <li class="list-group-item"><%= link_to list.name, list_path(list) %></li>
+    <% end %>
+  </ul>
+</div>
